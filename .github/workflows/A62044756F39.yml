@@ -1,4 +1,4 @@
-name: 构建0416
+name: 构建0417
 
 on:
   workflow_dispatch:
@@ -66,8 +66,6 @@ jobs:
 
           # 添加第二张网卡mac并设置网卡数量
           sed -i -e 's/0011323D47F7"/&,\n\t"mac2": "0011323D47F8",\n\t"netif_num": 6/' ${{matrix.platform}}_user_config.json
-          # 添加第三张网卡mac并设置网卡数量
-          sed -i -e 's/0011323D46F7"/&,\n\t"mac2": "0011323D46F8",\n\t"netif_num": 6/' ${{matrix.platform}}_user_config.json
 
           # 调整synoinfo
           sed -i -e 's/"synoinfo": {},/"synoinfo": {\n\t"maxlanport": "6"\n    },/' ${{matrix.platform}}_user_config.json
